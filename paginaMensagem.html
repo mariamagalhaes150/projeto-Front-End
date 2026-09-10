@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="paginaMensagem.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="insiraaqui" alt="Logo">
+        </div>
+
+        <div class="botoesIniciais">
+            <a href="paginaInicial.html"><button id="botao-paginicial"> Página Inicial</button></a>
+            <button id="botao-Mensagens">Mensagem</button>
+            <button id="botao-publicacoes">Publicações</button>
+            <a href="paginaPerfil.html"><button id="botao-meuperfil">Meu Perfil</button></a>
+            <button id="botao-configurações">Configurações</button>
+            <button id="botao-publicar">Publicar</button>
+        </div>
+
+        <button class="profilepicture1"></button>
+    </header>
+
+    <!--Bloco das mensagens-->
+    <div class="mensagens">
+        <h3>Nome do Perfil</h3>
+
+        <!--Bloco de pesquisa-->
+        <div class="buscaPerfil">
+            <input type="text" id="botaoPesquisar" name="botaoPesquisar" placeholder="Pesquisa">
+        </div>
+
+        <!--Perfil mensagem div-->
+        <div class="perfilMensagens" onclick="abrirMensagem()" role="button" tabindex="0">
+            <img src="profilepicture3">
+            <h2>Nome de usuário</h2>
+            <p>Clique para abrir o modal.</p>
+        </div>
+ 
+        <!--Bloco de perfil-->
+        <div class="perfil">
+            <button class="profilepicture2"></button><button class="nomeUsuários">Usuário</button>
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
