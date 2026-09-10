@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(212, 212, 212);
+    margin: 0;
+}
+ 
+/* menu de cima*/
+header {
+    background-color: #005fa7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #004f8b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    z-index: 10;
+}
+ 
+
+/* por imagem necessaria */
+.logo img {
+    height: 2.5rem;
+}
+ 
+.botoesIniciais {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+ 
+.botoesIniciais button { 
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    color: white; 
+    font-size: 1rem;
+    font-weight: bold; 
+}
+ 
+#botao-paginicial {
+    background-color: white;
+    color: #005fa7;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+.profilepicture1 {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    background-color: #d4d4d4;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/*div mensagens*/
+/*div mensagens*/
+.mensagens {
+    width: 25rem;
+    background-color: white;
+    border-radius: 15px 15px 15px 15px; /* Bordas arredondadas embaixo, se preferir */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Dá aquele efeito de profundidade da imagem */
+    position: fixed;
+    top: 5.5rem; /* Ajuste para ficar logo abaixo do header */
+    left: 2rem; /* Afasta um pouco da borda esquerda */
+    height: calc(100vh - 7rem); /* Altura dinâmica baseada na tela */
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+/* Cabeçalho interno das mensagens */
+.mensagens-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.mensagens-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.botao-add {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Bloco de pesquisa */
+.buscaPerfil {
+    display: flex;
+    align-items: center;
+    border: 1px solid #b3b3b3;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    margin-bottom: 1.5rem;
+}
+
+.icone-busca {
+    margin-right: 0.5rem;
+}
+
+#botaoPesquisar {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    background: transparent;
+    color: #333;
+}
+
+/* Área de rolagem da lista de usuários */
+.lista-usuarios {
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+    flex: 1; /* Faz a lista ocupar o espaço restante */
+    padding-right: 0.5rem;
+}
+
+/* Personalizando a barra de rolagem para ficar parecida com o design */
+.lista-usuarios::-webkit-scrollbar {
+    width: 8px;
+}
+.lista-usuarios::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+.lista-usuarios::-webkit-scrollbar-thumb {
+    background: #c1c1c1; 
+    border-radius: 10px;
+}
+.lista-usuarios::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8; 
+}
+
+/* Item individual do perfil */
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.profilepicture2 {
+    border-radius: 50%;
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: #6b8296; /* Cor azul acinzentada similar à imagem */
+    flex-shrink: 0;
+}
+
+.nomeUsuarios {
+    font-size: 1rem;
+    color: #333;
+}

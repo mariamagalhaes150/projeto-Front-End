@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="pagina-mensagem.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="insiraaqui" alt="Logo">
+        </div>
+
+        <div class="botoesIniciais"> 
+            <a href="paginaInicial.html"><button id="botao-paginicial"> Página Inicial</button></a> 
+            <button id="botao-Mensagens">Mensagem</button> 
+            <button id="botao-publicacoes">Publicações</button> 
+            <a href="paginaPerfil.html"><button id="botao-meuperfil">Meu Perfil</button></a> 
+            <button id="botao-configurações">Configurações</button> 
+            <button id="botao-publicar">Publicar</button> 
+        </div>
+
+        <button class="profilepicture1"></button>
+    </header>
+
+    <!--Bloco das mensagens-->
+    <div class="mensagens">
+    
+        <div class="mensagens-header">
+            <h3>Nome de Perfil</h3>
+            <button class="botao-add">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="#005fa7" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+    
+        <div class="buscaPerfil">
+            <svg class="icone-busca" viewBox="0 0 24 24" width="20" height="20" stroke="#888" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="botaoPesquisar" name="botaoPesquisar" placeholder="Pesquisar">
+        </div>
+        
+        <div class="lista-usuarios">
+            <div class="perfil">
+                <div class="profilepicture2"></div>
+                <span class="nomeUsuarios">Usuário A</span>
+            </div>
+            
+            <div class="perfil">
+                <div class="profilepicture2"></div>
+                <span class="nomeUsuarios">Usuário B</span>
+            </div>
+    
+            <div class="perfil">
+                <div class="profilepicture2"></div>
+                <span class="nomeUsuarios">Usuário C</span>
+            </div>
+    
+            <div class="perfil">
+                <div class="profilepicture2"></div>
+                <span class="nomeUsuarios">Usuário D</span>
+            </div>
+    
+            <div class="perfil">
+                <div class="profilepicture2"></div>
+                <span class="nomeUsuarios">Usuário E</span>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

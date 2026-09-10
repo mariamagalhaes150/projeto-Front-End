@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(212, 212, 212);
+    margin: 0;
+}
+ 
+/* menu de cima*/
+header {
+    background-color: #005fa7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #004f8b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    z-index: 10;
+}
+ 
+
+/* por imagem necessaria */
+.logo img {
+    height: 2.5rem;
+}
+ 
+.botoesIniciais {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+ 
+.botoesIniciais button { 
+    background: transparent; 
+    border: none; 
+    cursor: pointer; 
+    color: white; 
+    font-size: 1rem;
+    font-weight: bold; 
+}
+ 
+#botao-paginicial {
+    background-color: white;
+    color: #005fa7;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+.profilepicture1 {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    background-color: #d4d4d4;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.mensagens {
+    position: fixed;
+    top: 6rem;
+    left: 2rem;
+    bottom: 3rem; /* Faz a caixa esticar até a parte inferior da tela */
+    z-index: 1000;
+    
+    width: 30rem;
+    max-height: 100vh; /* Recomendado no lugar de height fixa para não ultrapassar a tela */
+    overflow-y: auto; /* Permite rolar o conteúdo interno se a div for grande */
+    
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #a8a8a8;
+    padding: 1.5rem 1.5rem 1.5rem 2rem; /* [topo] [direita] [baixo] [esquerda] */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Adiciona sombra para dar o efeito de elevação */
+
+}
+.buscaPerfil > h3 {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    position: fixed;
+}
+.buscaPerfil{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    position: fixed;
+    
+}
+.perfilMensagens {
+    cursor: pointer; /* Transforma o cursor na mãozinha */
+    user-select: none; /* Opcional: evita que o texto fique selecionado ao clicar */
+    display: flex;          /* Coloca a imagem e o nome lado a lado */
+    align-items: center;    /* Alinha o texto no centro vertical da foto */
+    gap: 1rem;              /* Cria um espaçamento entre a foto e o nome */
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Remove as margens padrão do <h3> para garantir o alinhamento central */
+.perfilMensagens h3 {
+    margin: 0;
+}
+
+
+.profilepicture2 {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    background-color: #565656;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#botaoPesquisar {
+    border-radius: 50px;
+    width: 25rem;
+    height: 3rem;
+    padding: 1rem;
+    margin: 1rem;
+    margin-left: -1rem;
+    background-color: white;
+    border: 3px solid #9c9c9c;
+    position: relative;
+    top: -20px;
+}
+
+.perfil{
+    margin-top: 1rem;
+}
+
+/* Seleciona a imagem dentro da div .perfilMensagens */
+.perfilMensagens img {
+    width: 4rem;          /* Ajuste a largura (ex: 2.5rem = 40px) */
+    height: 4rem;         /* Ajuste a altura */
+    border-radius: 50%;     /* Deixa a imagem redonda */
+    object-fit: cover;      /* Evita que a foto fique esticada/distorcida */
+    flex-shrink: 0;         /* Impede que a imagem encolha */
+}
+
+.mensagens2{
+    margin-top: 9rem; /* Aumente o valor (ex: 30px, 3rem) para descer mais */
+}
+
+.imgFundo {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Fica atrás das mensagens (z-index: 1000) e do header (z-index: 10) */
+    
+    height: 10rem;
+    width: 5rem;
+    object-fit: contain; /* Evita que a imagem distorça caso a proporção mude */
+
+    width: 15rem;  /* Aumente este valor conforme necessário (antes era 5rem) */
+    height: auto;  /* Ajusta a altura automaticamente */
+}
+
