@@ -36,18 +36,32 @@
             <input type="text" id="botaoPesquisar" name="botaoPesquisar" placeholder="Pesquisa">
         </div>
 
-        <div class="mensagens2">
-            <!--Perfil mensagem div-->
-            <div class="perfilMensagens" onclick="abrirMensagem()" role="button" tabindex="0">
-                <img src="img/profilepicture3.png">
-                <h3>Nome de usuário</h3>
+        <div class="mensagens2" id="listaContatos">
+            <!-- Fica vazio aqui! O JavaScript vai preencher automaticamente -->
+        </div>
+
+    </div>
+
+        <!-- Insira este bloco logo abaixo da div .mensagens -->
+        <div class="chatContainer" id="chatContainer">
+            <div class="chatHeader">
+                <img id="chatFotoPerfil" src="img/profilepicture3.png" alt="Foto Perfil">
+                <h3 id="chatNomeUsuario">Nome de usuário</h3>
             </div>
-    </div>
+            
+            <div class="chatMensagens" id="chatMensagens">
+            <!-- As bolhas de mensagem entram aqui via JS -->
+            </div>
+            
+            <div class="chatInputContainer">
+                <input type="text" id="inputMensagem" placeholder="Escreva uma mensagem...">
+                <button id="btnEnviar">Enviar</button>
+        </div>
 
 
 
     </div>
 
-
+    <script src="paginaMensagem.js"></script>
 </body>
 </html>

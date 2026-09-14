@@ -45,7 +45,7 @@ header {
     font-weight: bold; 
 }
  
-#botao-paginicial {
+#botao-Mensagens {
     background-color: white;
     color: #005fa7;
     border: none;
@@ -87,22 +87,26 @@ header {
 .buscaPerfil > h3 {
     margin-left: 1rem;
     margin-top: 1rem;
-    position: fixed;
 }
 .buscaPerfil{
     margin-left: 1rem;
     margin-top: 1rem;
-    position: fixed;
     
 }
 .perfilMensagens {
     cursor: pointer; /* Transforma o cursor na mãozinha */
-    user-select: none; /* Opcional: evita que o texto fique selecionado ao clicar */
     display: flex;          /* Coloca a imagem e o nome lado a lado */
     align-items: center;    /* Alinha o texto no centro vertical da foto */
     gap: 1rem;              /* Cria um espaçamento entre a foto e o nome */
-    cursor: pointer;
-    user-select: none;
+    cursor: pointer;      /* Transforma o ponteiro do mouse na "mãozinha" de clique */
+    padding: 0.6rem;
+    border-radius:10px;
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Transição suave das propriedades */
+}
+
+.perfilMensagens:hover {
+    background-color: #e4e6eb; /* Muda a cor do fundo para um cinza claro */
+    transform: translateX(4px); /* (Opcional) Dá um leve empurrãozinho para a direita */
 }
 
 /* Remove as margens padrão do <h3> para garantir o alinhamento central */
@@ -130,8 +134,6 @@ header {
     margin-left: -1rem;
     background-color: white;
     border: 3px solid #9c9c9c;
-    position: relative;
-    top: -20px;
 }
 
 .perfil{
@@ -148,7 +150,7 @@ header {
 }
 
 .mensagens2{
-    margin-top: 9rem; /* Aumente o valor (ex: 30px, 3rem) para descer mais */
+    margin-top: 1rem; 
 }
 
 .imgFundo {
@@ -166,3 +168,105 @@ header {
     height: auto;  /* Ajusta a altura automaticamente */
 }
 
+/* Esconde o painel do chat no início */
+.chatContainer {
+    display: none; 
+    position: fixed;
+    top: 6rem;
+    left: 34rem; /* Fica ao lado da div .mensagens */
+    right: 2rem;
+    bottom: 3rem;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #a8a8a8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+/* Exibição flex quando ativo pelo JS */
+.chatContainer.ativo {
+    display: flex;
+}
+
+.chatHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.chatHeader img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.chatMensagens {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.chatInputContainer {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.chatInputContainer input {
+    flex: 1;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding: 0.8rem 1rem;
+    outline: none;
+}
+
+.chatInputContainer button {
+    background-color: #005fa7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Container que segura os balões */
+.chatMensagens {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column; /* Empilha as mensagens uma embaixo da outra */
+    gap: 0.8rem;
+}
+
+/* Estilo base do balão */
+.balao {
+    max-width: 60%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+/* Mensagem que EU enviei (Azul, na direita) */
+.balao.enviada {
+    align-self: flex-end;
+    background-color: #005fa7;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Mensagem RECEBIDA (Cinza, na esquerda) */
+.balao.recebida {
+    align-self: flex-start;
+    background-color: #e4e6eb;
+    color: black;
+    border-bottom-left-radius: 4px;
+}
