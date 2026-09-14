@@ -2,7 +2,7 @@
 const conversas = [
     {
         id: 1,
-        nome: "Usuário de Teste 1",
+        nome: "Maria Eduarda",
         foto: "img/profilepicture3.png",
         historico: [
             { texto: "Olá! Esta é uma mensagem recebida de teste.", enviadaPorMim: false },
@@ -11,7 +11,7 @@ const conversas = [
     },
     {
         id: 2,
-        nome: "Usuário de Teste 2",
+        nome: "Isadora",
         foto: "img/profilepicture3.png",
         historico: [
             { texto: "Tudo certo com o projeto do grupo?", enviadaPorMim: false }
@@ -22,11 +22,13 @@ const conversas = [
 let conversaSelecionada = null; // Guarda o contato que está aberto no momento
 
 // PARTE 2: Desenhar os contatos na esquerda
-function carregarContatos() {
+function carregarContatos(lista = conversas) {
     const listaContainer = document.getElementById('listaContatos');
+    if (!listaContainer) return;
+    
     listaContainer.innerHTML = '';
 
-    conversas.forEach(contato => {
+    lista.forEach(contato => {
         const divPerfil = document.createElement('div');
         divPerfil.classList.add('perfilMensagens');
 
@@ -79,41 +81,29 @@ function renderizarMensagens() {
     areaMensagens.scrollTop = areaMensagens.scrollHeight;
 }
 
-// Executa ao carregar a página
-document.addEventListener('DOMContentLoaded', carregarContatos);
+// Função que escuta o que é digitado no campo de pesquisa
+function configurarPesquisa() {
+    const inputPesquisa = document.getElementById('botaoPesquisar');
+    if (!inputPesquisa) return;
 
-// PARTE 4: Enviar novas mensagens
-function enviarMensagem() {
-    // 1. Pega o campo de texto e remove espaços vazios das pontas
-    const input = document.getElementById('inputMensagem');
-    const texto = input.value.trim();
+    // O evento 'input' dispara a cada letra digitada ou apagada
+    inputPesquisa.addEventListener('input', (e) => {
+        const termo = e.target.value.toLowerCase(); // Converte o texto digitado para minúsculas
 
-    // 2. Se o texto estiver vazio ou nenhum contato estiver selecionado, não faz nada
-    if (!texto || !conversaSelecionada) return;
+        // Filtra os contatos cujo nome contém o texto digitado
+        const filtrados = conversas.filter(contato => 
+            contato.nome.toLowerCase().includes(termo)
+        );
 
-    // 3. Adiciona a nova mensagem enviada no histórico da conversa ativa
-    conversaSelecionada.historico.push({
-        texto: texto,
-        enviadaPorMim: true
+        // Redesenha a lista na tela apenas com os resultados filtrados
+        carregarContatos(filtrados);
     });
-
-    // 4. Limpa o campo de digitação
-    input.value = '';
-
-    // 5. Redesenha as mensagens na tela atualizadas
-    renderizarMensagens();
 }
 
-// Conecta os eventos do botão e da tecla Enter ao carregar a página
+// Chame a função dentro do DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Executa a Parte 2 que já tínhamos feito
     carregarContatos();
-
-    // Clique no botão Enviar
-    document.getElementById('btnEnviar').addEventListener('click', enviarMensagem);
-
-    // Pressionar a tecla Enter dentro do campo de texto
-    document.getElementById('inputMensagem').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') enviarMensagem();
-    });
+    configurarPesquisa(); // <--- Adicione esta linha
+    
+    // ...seus outros eventos (btnEnviar, keypress Enter)...
 });
