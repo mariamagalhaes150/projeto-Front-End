@@ -100,10 +100,64 @@ function configurarPesquisa() {
     });
 }
 
+// Função que escuta o que é digitado no campo de pesquisa
+function configurarPesquisa() {
+    const inputPesquisa = document.getElementById('botaoPesquisar');
+    if (!inputPesquisa) return;
+
+    inputPesquisa.addEventListener('input', (e) => {
+        const termo = e.target.value.toLowerCase();
+
+        const filtrados = conversas.filter(contato => 
+            contato.nome.toLowerCase().includes(termo)
+        );
+
+        carregarContatos(filtrados);
+    });
+}
+
+// PARTE 4: Função para enviar mensagens (Adicione esta função!)
+function enviarMensagem() {
+    const input = document.getElementById('inputMensagem');
+    if (!input) return;
+
+    const texto = input.value.trim();
+    // Impede o envio se o campo estiver vazio ou se nenhuma conversa estiver aberta
+    if (!texto || !conversaSelecionada) return;
+
+    // Adiciona a nova mensagem no histórico do contato atual
+    conversaSelecionada.historico.push({
+        texto: texto,
+        enviadaPorMim: true
+    });
+
+    input.value = ''; // Limpa a caixa de texto
+    renderizarMensagens(); // Atualiza a tela com a nova bolha
+}
+
+// PARTE 5: Inicialização dos eventos ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    carregarContatos();
+    configurarPesquisa();
+    
+    // Conecta o clique no botão "Enviar"
+    const btnEnviar = document.getElementById('btnEnviar');
+    if (btnEnviar) {
+        btnEnviar.addEventListener('click', enviarMensagem);
+    }
+
+    // Conecta a tecla Enter no campo de mensagem
+    const inputMensagem = document.getElementById('inputMensagem');
+    if (inputMensagem) {
+        inputMensagem.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') enviarMensagem();
+        });
+    }
+});
+
 // Chame a função dentro do DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     carregarContatos();
     configurarPesquisa(); // <--- Adicione esta linha
-    
-    // ...seus outros eventos (btnEnviar, keypress Enter)...
+
 });
